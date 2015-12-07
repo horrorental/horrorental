@@ -8,7 +8,7 @@
 </head>
 <body>
 
-Myページ
+Myページaaaaa
 ようこそ  <%=session.getAttribute("userName")%>さん
 	
 
