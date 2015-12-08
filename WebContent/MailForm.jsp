@@ -18,7 +18,7 @@
     <INPUT type="text" name="From" size=40><br></TD>
   </TR>
   <TR> <TD> </TD></TR><TR> <TD> </TD></TR><TR> <TD> </TD></TR>
-  <td>お問い合わせはなんですか？<br>
+  <td>お問い合わせはなんですか？はよこたえろ<br>
 <input type="radio" name="q1" value="商品の損傷、損失">商品の損傷、損失<br>
 <input type="radio" name="q1" value="店員の態度、言葉使い">店員の態度、言葉使い<br>
 <input type="radio" name="q1" value="商品の発注、お届けについて">商品の発注、お届けについて<br>
