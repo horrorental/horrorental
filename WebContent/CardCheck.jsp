@@ -7,7 +7,7 @@ if(errMes == null){
 	errMes = "";
 }
 
-%>oreha kasu
+%>oraora
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
