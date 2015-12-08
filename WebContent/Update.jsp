@@ -9,7 +9,7 @@
 <title>会員情報修正</title>
 </head>
 <body>
-
+うんち
 	<%
 		//エラーメッセージを取得
 		String errorMessage = (String)request.getAttribute("errMsg");
