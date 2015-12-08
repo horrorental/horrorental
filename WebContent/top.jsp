@@ -11,7 +11,7 @@
 <h1>ログイン前のトップ？</h1>
 
 <h2>HorroRental　Webページへようこそ</h2>
-<a href="http://localhost:8080/HorroRental/SignUp.jsp">会員登録(高橋)</a>
+<a href="http://localhost:8080/HorroRental/SignUp.jsp">会員登録(高橋!!!)</a>
 <br/>
 <a href="http://localhost:8080/HorroRental/LoginServlet">ログイン(山崎)</a>
 <br/>
