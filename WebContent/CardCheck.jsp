@@ -16,7 +16,6 @@ if(errMes == null){
 <body>
 
 <h1>たぶんこのjsp意味ないかと？</h1>
-<h1>たぶんこのjsp意味ないかと？</h1>
 
 <h1>カード情報入力画面</h1>
 <form method="post" action = "./CardCheckServlet">
