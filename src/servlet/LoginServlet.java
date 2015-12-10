@@ -19,7 +19,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+//変更
     /**
      * @see HttpServlet#HttpServlet()
      */
