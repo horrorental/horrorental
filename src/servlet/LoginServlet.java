@@ -40,23 +40,23 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String id =request.getParameter("id");//IDを取得
-		String login_pass =request.getParameter("login_pass");//PWを取得
+		String id =request.getParameter("id");//入力されたIDを取得　id←入力されたID
+		String login_pass =request.getParameter("login_pass");//入力されたPWを取得　login_pass←入力されたPW
 
 		//書式チェック
 		Pattern p = Pattern.compile("^[0-9a-zA-Z]+$");
-	    Matcher m = p.matcher(id);
+	    Matcher m = p.matcher(id);//チェックしてm.find()の中にtrueかfalseを入れる
 	    
-	    String jsp = "Login.jsp"; 
+	    String jsp = "Login.jsp"; //セマフォの遷移先を動的に変える　(今)ｊsp←login.jsp
 
 		boolean isErr = false;
 		
 		//エラーメッセ―ジ処理
 		//IDが６より小さくて１６より大きい場合のエラー
-		if(id == null || (id.length() < 6 && id.length() > 16) || m.find()== false){
+		if(id == null || (id.length() < 6 && id.length() > 16) || m.find()== false){//m.find() アッテルカ合ってないか
 			isErr = true;
 			request.setAttribute("idErr", "IDを正しく入力してください");
-		}		
+		}
 		//PWが入力されていない場合のエラー
 		if(login_pass == null || login_pass.length() <= 0){
 			isErr = true;
@@ -72,12 +72,12 @@ public class LoginServlet extends HttpServlet {
 		login_pass = DigestUtils.sha256Hex(login_pass);//ハッシュ化
 		
 		
-		Boolean isLogedin = false;
+		Boolean isLogedin = false;//isLogedinをfalseに設定
 		HttpSession session = request.getSession();
 		
+		//idを基にDBにアクセス
 		HorrorDAO dao = new HorrorDAO();
-		
-		String dbPassword = dao.selectPass(id);
+		String dbPassword = dao.selectPass(id);//dbPassword←DB内のﾊﾟｽﾜｰﾄﾞ
 		
 		if(dao.getIsErr()){
 			//セマフォファイルが存在していた場合（DBに異常がある場合）				
@@ -92,14 +92,11 @@ public class LoginServlet extends HttpServlet {
 		}
 		
 		if (isLogedin){
-			//ログイン成功時のURL
-			request.getRequestDispatcher("Mypage2.jsp").forward(request, response);
+			//ログイン成功時のURL マイページへ遷移
+			request.getRequestDispatcher("WEB-INF/Mypage.jsp").forward(request, response);
 		}else{
 			//■ログイン失敗時　ログイン画面にフォワードする
 			request.setAttribute("errMsg", "ログインに失敗しました<br>IDかパスワードが間違っています");
-			session.removeAttribute("isLogedin");
-			session.removeAttribute("id");
-			session.removeAttribute("login_pass");
 			request.getRequestDispatcher("WEB-INF/"+jsp).forward(request, response);
 		}
 	}
