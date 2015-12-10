@@ -63,7 +63,7 @@
 	<br>
 	<br>
 	
-	未登録の方は<a href="http://localhost:8080/HorroRental/SignUp.jsp">［新規会員登録画面］</a>へ！！
+	未登録の方は<a href="SignUp.jsp">［新規会員登録画面］</a>へ！！
 	
 </body>
 </html>
