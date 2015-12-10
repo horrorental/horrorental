@@ -7,7 +7,6 @@
 <title>Topページ</title>
 </head>
 <body>
-
 <h1>ログイン前のトップ？</h1>
 HAHAHAHAHAHA by 黒詐偽さん
 <h2>HorroRental　Webページへようこそ</h2>
