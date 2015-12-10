@@ -15,6 +15,8 @@ import java.util.Iterator;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 public class HorrorDAO {
@@ -227,6 +229,52 @@ public class HorrorDAO {
 			// リストを返す
 			return list;
 		}
+	/**
+	 * 会員情報の項目変更用DAO
+	 * @param セッションで受け取る値:SC_ID　会員ID
+	 * @return　true
+	 */
+	public void Update(String SC_Id, HttpServletRequest request){
+
+		// セッション情報
+		HttpSession session = request.getSession();
+		String C_Id = (String) session.getAttribute("id");
+		C_Id = "katou"; // デバック用
+		System.out.println("セッションの値(ID) by HorroDAO/Update:" + SC_Id);
+
+		try{
+			// DBコネクション接続
+			Connection con = getConnection();
+			PreparedStatement ps = con.prepareStatement("UPDATE IC_MST SET C_Name=?,C_Yomi=?,C_AddNo=?,C_Address=?,C_Phone=?,C_Card=?,C_Mail=? WHERE C_ID=?");
+
+			// ↓ここ変更/////////////////////
+			//パラメータの取り出し
+			String C_Name = request.getParameter("C_Name"); // 顧客名の取得
+			String C_Yomi = request.getParameter("C_Yomi"); // フリガナの取得
+			String C_AddNo = request.getParameter("C_AddNo"); // 郵便番号の取得
+			String C_Address = request.getParameter("C_Address"); // 住所の取得
+			String C_Phone = request.getParameter("C_Phone"); // 電話番号の取得
+			String C_Card = request.getParameter("C_Card"); // クレジットカードの取得
+			String C_Mail = request.getParameter("C_Mail"); // メールアドレスの取得
+
+			//■SQLの実行
+			//パラメータをセット
+			ps.setString(1,C_Name);
+			ps.setString(2,C_Yomi);
+			ps.setString(3,C_AddNo);
+			ps.setString(4,C_Address);
+			ps.setString(5,C_Phone);
+			ps.setString(6,C_Card);
+			ps.setString(7,C_Mail);
+			ps.setString(8,C_Id);
+			ps.executeUpdate();
+			///////////////////////////////////////////
+
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+	}
+
 //	※よしきおわり
 	
 
