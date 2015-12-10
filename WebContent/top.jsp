@@ -9,7 +9,7 @@
 <body>
 
 <h1>ログイン前のトップ？</h1>
-
+HAHAHAHAHAHA by 黒詐偽さん
 <h2>HorroRental　Webページへようこそ</h2>
 <a href="http://localhost:8080/HorroRental/SignUp.jsp">会員登録(高橋!!!)</a>
 <br/>
